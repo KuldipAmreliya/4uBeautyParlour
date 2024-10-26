@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Parlour Work Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; /* Updated to white for consistency */
+    box-sizing: border-box; /* Ensure padding and borders are included in the element's total width and height */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes underline {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Header */
+header {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 1em;
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Align items vertically */
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+    flex-wrap: wrap; /* Allow wrapping of content for smaller screens */
+}
+
+header .logo {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex; /* Display nav as flex container */
+    flex-wrap: wrap; /* Wrap menu items on smaller screens */
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Display list items in a row */
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Wrap menu items on smaller screens */
+}
+
+nav ul li {
+    margin: 0 1em; /* Add spacing between menu items */
+}
+
+nav ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff69b4; /* Sweet pink on hover */
+    animation: pulse 0.5s ease-in-out; /* Add pulse animation */
+}
+
+/* Section */
+section {
+    padding: 2em;
+    text-align: center;
+}
+
+/* Heading 2 */
+h2 {
+    color: #ff69b4; /* Sweet pink */
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    animation: slideIn 1s ease-out; /* Add slide-in animation */
+}
+
+h2::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: #ff69b4; /* Sweet pink underline */
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    border-radius: 2px;
+    animation: underline 1s ease-out forwards;
+}
+
+/* Gallery */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.gallery-container img {
+    width: 30%;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Updated border-radius for consistency */
+    transition: transform 0.3s, box-shadow 0.3s; /* Increased transition duration */
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Updated box-shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .gallery-container img {
+        width: 45%;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container img {
+        width: 100%;
+    }
+
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ff69b4;
+    color: #fff;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    animation: slideIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    animation: slideIn 1.2s ease-out;
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #ff69b4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    animation: slideIn 1.4s ease-out;
+}
+
+.hero .btn:hover {
+    background-color: #ff3366;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    text-align: center;
+    padding: 1em 0;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.footer .contact-info p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    animation: slideIn 2.5s ease-in-out;
+}
+
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer .social-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-link img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-link span {
+    font-size: 1.1em;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer .social-link:hover img {
+    transform: scale(1.2);
+}
+
+.footer .social-link:hover span {
+    color: #ff69b4;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">4u Bridal Studio</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="my Work.html">My Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="appoinments.html" class="btn">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>4u Bridal Studio</h1>
+        <p>Hair style, hair makeup, hair rebonding, and more.</p>
+        <a href="appoinments.html" class="btn">Book Now</a>
+    </section>
+    
+    <section id="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-container">
+            <!-- Add your images here -->
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.04_952d94d5.jpg" alt="Work Photo 1">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.14_2a6f174d.jpg" alt="Work Photo 2">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.20_dbfbb454.jpg" alt="Work Photo 3">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.25_dd3cf87c.jpg" alt="Work Photo 4">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.26_7f7eabe6.jpg" alt="Work Photo 5">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.30_ddf6fbeb.jpg" alt="Work Photo 6">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.32_5e6cb366.jpg" alt="Work Photo 7"> 
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.32_939a70ac.jpg" alt="Work Photo 8">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.34_3db80856.jpg" alt="Work Photo 9">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.36_a64e9b38.jpg" alt="Work Photo 10">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.37_11bde6a5.jpg" alt="Work Photo 11">
+            <img src="work/WhatsApp Image 2024-06-28 at 16.35.37_fe1ba1ef.jpg" alt="Work Photo 12"> 
+            <!-- Repeat as necessary -->
+        </div>
+    </section>
+    
+    <!-- Footer -->
+<footer class="footer">
+    <p>Follow us on:</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/4_you_bridal_studio/" target="_blank" class="social-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            <span>@4_you_bridal_studio</span>
+        </a>
+        <a href="https://www.facebook.com/dhara.nathani.528" target="_blank" class="social-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            <span>Dhara Nathani</span>
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>

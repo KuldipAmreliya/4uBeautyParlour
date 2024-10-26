@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Parlour Appointment</title>
+    <!-- Include Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+   body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7; /* Light grey background */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLabels {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Header */
+header {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 1em; /* Consistent padding */
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between logo and nav */
+    align-items: center; /* Align items vertically */
+    animation: fadeIn 1s ease-in-out; /* Add fade-in animation */
+}
+
+header .logo {
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    color: #fff; /* White text color */
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff69b4; /* Sweet pink on hover */
+    animation: pulse 0.5s ease-in-out; /* Add pulse animation */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff69b4;
+    transform: translateY(-3px);
+}
+
+/* Container */
+.container {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: #333;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+h1 {
+    text-align: center;
+    color: #ff69b4;
+    margin-bottom: 20px;
+    animation: slideInFromTop 0.8s ease-out forwards;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    opacity: 0;
+    animation: fadeInLabels 1s ease forwards;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], select {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: slideInFromBottom 1s ease forwards;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, select:focus {
+    border-color: #ff69b4;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+input[type="submit"] {
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInButton 1.5s ease forwards;
+}
+
+input[type="submit"]:hover {
+    background-color: #ff3366;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.footer .contact-info p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    animation: slideIn 2.5s ease-in-out;
+}
+
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer .social-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-link img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer .social-link span {
+    font-size: 1.1em;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.footer .social-link:hover img {
+    transform: scale(1.2);
+}
+
+.footer .social-link:hover span {
+    color: #ff69b4;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ff69b4; /* Pink background */
+    color: #fff; /* White text color */
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: #fff; /* White text color */
+    animation: slideIn 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #fff; /* White text color */
+    animation: slideIn 1.2s ease-out;
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #ff69b4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    animation: slideIn 1.4s ease-out;
+}
+
+.hero .btn:hover {
+    background-color: #ff3366;
+    color: #fff;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero .btn {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">4u Bridal Studio</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="my Work.html">My Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="appoinments.html" class="btn">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>4u Bridal Studio</h1>
+        <p>Hair style, hair makeup, hair rebonding, and more.</p>
+        <a href="appoinments.html" class="btn">Book Now</a>
+    </section>
+
+    <div class="container">
+        <h1>Book an Appointment</h1>
+        <form id="appointmentForm"  action="https://formsubmit.co/4ubridalstudio@gmail.com" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" required placeholder="Enter 10-digit mobile number">
+
+            <label for="service">Service Desired:</label>
+            <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="Nail art">Nail art</option>
+                <option value="Bridal makeup">Bridal makeup</option>
+                <option value="Haircut">Haircut</option>
+                <option value="Hairstyle">Hairstyle</option>
+                <option value="Hair rebonding">Hair rebonding</option>
+                <option value="Facial">Facial</option>
+                <option value="Waxing">Waxing</option>
+                <option value="Hair spa">Hair spa</option>
+                <option value="Keratin">Keratin</option>
+                <option value="Manicure pedicure">Manicure pedicure</option>
+                <option value="3D makeup">3D makeup</option>
+                <option value="Per minute treatment">Per minute treatment</option>
+                <option value="Hair extension">Hair extension</option>
+                <option value="Nail extension">Nail extension</option>
+            </select>
+
+            <label for="date">Preferred Date and Time:</label>
+            <input type="text" id="date" name="date" placeholder="Select Date and Time" required>
+
+            <input type="submit" value="Book Appointment">
+        </form>
+    </div>
+
+    <footer class="footer">
+        <p>Follow us on:</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/4_you_bridal_studio/" target="_blank" class="social-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+                <span>@4_you_bridal_studio</span>
+            </a>
+            <a href="https://www.facebook.com/dhara.nathani.528" target="_blank" class="social-link">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                <span>Dhara Nathani</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Include Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const labels = document.querySelectorAll('label');
+            labels.forEach((label, index) => {
+                setTimeout(() => {
+                    label.style.opacity = '1';
+                }, index * 300);
+            });
+
+            const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], select');
+            inputs.forEach((input, index) => {
+                setTimeout(() => {
+                    input.style.opacity = '1';
+                }, index * 300 + 400); // Delay after labels appear
+            });
+
+            setTimeout(() => {
+                const submitButton = document.querySelector('input[type="submit"]');
+                submitButton.style.opacity = '1';
+            }, 1200); // Delay after inputs appear
+
+            // Initialize Flatpickr
+            flatpickr('#date', {
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                minDate: "today",
+                altInput: true,
+                altFormat: "F j, Y H:i",
+                defaultDate: "today",
+            });
+        });
+
+        function submitForm(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            console.log(data);
+            alert('Appointment booked successfully!');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
