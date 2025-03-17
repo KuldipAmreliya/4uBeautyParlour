@@ -85,7 +85,7 @@ This project is licensed under the [MIT License](LICENSE).
 For any inquiries or feedback, please contact:
 
 - **Name**: Kuldip Amreliya
-- **Email**: [your.email@example.com]
+- **Email**: kuldipamreliya001@gmail.com
 - **Website**: [4uBeautyParlour](https://kuldipamreliya.github.io/4uBeautyParlour/)
 
 ---
